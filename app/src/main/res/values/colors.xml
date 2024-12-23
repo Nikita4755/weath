@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Основной фон для приложения -->
+    <color name="background">#F5F5F5</color>
+
+    <!-- Цвета текста -->
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#757575</color>
+
+    <!-- Основной цвет для элементов интерфейса -->
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Цвет для кнопок и других акцентов -->
+    <color name="buttonColor">#2196F3</color>
+
+    <!-- Цвет для фона ActionBar и статусной панели -->
+    <color name="colorPrimary">#3F51B5</color>
+
+    <!-- Цвет для фона карточек и других блоков -->
+    <color name="cardBackground">#FFFFFF</color>
+
+    <!-- Цвет для границ и элементов с фокусом -->
+    <color name="colorPrimaryVariant">#303F9F</color>
+
+    <!-- Цвет для неактивных элементов -->
+    <color name="disabledTextColor">#BDBDBD</color>
+
+    <!-- Цвет для прогресс-бара -->
+    <color name="progressBarColor">#FFEB3B</color>
+</resources>

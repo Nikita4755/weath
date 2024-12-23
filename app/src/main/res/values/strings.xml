@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Curs</string>
+    <string name="city_label">Город</string>
+    <string name="temperature_label">Температура: %1$s°C</string>
+    <string name="condition_label">Состояние: %1$s</string>
+    <string name="error_loading_data">Ошибка загрузки данных</string>
+</resources>

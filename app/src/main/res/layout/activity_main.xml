@@ -1,0 +1,338 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.Material3.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:title="Погода">
+
+            <TextView
+                android:id="@+id/headerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:text="Средняя Погода"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:background="?attr/colorPrimary" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Поле для ввода города -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Введите город" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Кнопка для загрузки данных о погоде -->
+            <Button
+                android:id="@+id/loadWeatherButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Загрузить погоду"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_marginBottom="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_gravity="center"/>
+
+            <!-- Переключатель единиц температуры -->
+            <android.widget.RadioGroup
+                android:id="@+id/radioGroupTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.widget.RadioButton
+                    android:id="@+id/radioCelsius"
+                    android:text="Цельсий"
+                    android:checked="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <android.widget.RadioButton
+                    android:id="@+id/radioFahrenheit"
+                    android:text="Фаренгейт"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </android.widget.RadioGroup>
+
+            <!-- Карточка с информацией о средней погоде -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="12dp"
+                app:cardCornerRadius="12dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/temperatureView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Температура: -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/humidityView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Влажность: -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/precipitationView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Осадки: -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/windSpeedView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Скорость ветра: -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/pressureView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Давление: -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/feelsLikeView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Температура по ощущениям: -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/cloudinessView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Облачность: -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/sunriseView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Восход: -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/sunsetView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Закат: -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <!-- Иконка погоды -->
+                    <ImageView
+                        android:id="@+id/weatherIcon"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <!-- Прогноз на несколько дней -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="12dp"
+                app:cardCornerRadius="12dp"
+                android:layout_marginBottom="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:id="@+id/forecastTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Прогноз на несколько дней"
+                        android:textSize="20sp"
+                        android:textColor="@color/primaryText"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewForecast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <!-- Карточка с информацией из OpenWeather -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="12dp"
+                app:cardCornerRadius="12dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/openWeatherCardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Информация из OpenWeather"
+                        android:textSize="20sp"
+                        android:textColor="@color/primaryText"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/openWeatherTemperatureView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Температура (OpenWeather): -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/openWeatherHumidityView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Влажность (OpenWeather): -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/openWeatherWindSpeedView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Скорость ветра (OpenWeather): -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/openWeatherPressureView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Давление (OpenWeather): -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Карточка с информацией из WeatherAPI -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="12dp"
+                app:cardCornerRadius="12dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/weatherApiCardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Информация из WeatherAPI"
+                        android:textSize="20sp"
+                        android:textColor="@color/primaryText"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/weatherApiTemperatureView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Температура (WeatherAPI): -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/weatherApiHumidityView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Влажность (WeatherAPI): -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/weatherApiWindSpeedView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Скорость ветра (WeatherAPI): -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                    <TextView
+                        android:id="@+id/weatherApiPressureView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Давление (WeatherAPI): -"
+                        android:textSize="18sp"
+                        android:textColor="@color/primaryText"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Прогресс-бар -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

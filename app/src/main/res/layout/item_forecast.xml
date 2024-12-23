@@ -1,0 +1,51 @@
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/forecastDateView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Дата: -"
+            android:textSize="16sp"
+            android:textColor="@color/primaryText"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/forecastTemperatureView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Температура: -"
+            android:textSize="16sp"
+            android:textColor="@color/primaryText"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/forecastHumidityView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Влажность: -"
+            android:textSize="16sp"
+            android:textColor="@color/primaryText"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/forecastWindSpeedView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Скорость ветра: -"
+            android:textSize="16sp"
+            android:textColor="@color/primaryText"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
